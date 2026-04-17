@@ -1,12 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "pharmassist_db";
+$host = getenv('MYSQLHOST')     ?: 'localhost';
+$port = getenv('MYSQLPORT')     ?: '3306';
+$db   = getenv('MYSQLDATABASE') ?: 'pharmassist';
+$user = getenv('MYSQLUSER')     ?: 'root';
+$pass = getenv('MYSQLPASSWORD') ?: '';
 
-
-$conn = new mysqli($servername, $username, $password, $db_name);
-
+$conn = new mysqli($host, $user, $pass, $db, (int)$port);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
