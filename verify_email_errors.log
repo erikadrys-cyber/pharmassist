@@ -1,0 +1,20 @@
+[13-Apr-2026 17:51:35 Asia/Manila] RESEND OTP requested (ajax=1) user_id=38 email=meablola@tip.edu.ph
+[13-Apr-2026 17:51:35 Asia/Manila] OTP Generated: '033577'
+[13-Apr-2026 17:51:35 Asia/Manila] 
+========== EMAIL SENDING START ==========
+[13-Apr-2026 17:51:35 Asia/Manila] Timestamp: 2026-04-13 17:51:35
+[13-Apr-2026 17:51:35 Asia/Manila] Recipient: meablola@tip.edu.ph
+[13-Apr-2026 17:51:35 Asia/Manila] Subject: PharmAssist - Verification Code
+[13-Apr-2026 17:51:35 Asia/Manila] ✓ PHPMailer loaded
+[13-Apr-2026 17:51:35 Asia/Manila] SMTP Config:
+[13-Apr-2026 17:51:35 Asia/Manila]   Host: smtp.gmail.com
+[13-Apr-2026 17:51:35 Asia/Manila]   Port: 587
+[13-Apr-2026 17:51:35 Asia/Manila]   Encryption: STARTTLS
+[13-Apr-2026 17:51:35 Asia/Manila]   Username: a.p***
+[13-Apr-2026 17:51:35 Asia/Manila] ✓ SSL verification DISABLED (for local dev)
+[13-Apr-2026 17:51:35 Asia/Manila] ✓ Recipients configured
+[13-Apr-2026 17:51:35 Asia/Manila] ✓ Message content set
+[13-Apr-2026 17:51:35 Asia/Manila] → Attempting SMTP connection and send...
+[13-Apr-2026 17:51:40 Asia/Manila] ✓✓✓ EMAIL SENT SUCCESSFULLY!
+[13-Apr-2026 17:51:40 Asia/Manila] ========== EMAIL SENDING SUCCESS ==========
+

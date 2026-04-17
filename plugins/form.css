@@ -1,0 +1,126 @@
+ body {
+      font-family: 'Tinos', serif !important;
+      background-color: #f6faff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .medicine-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      width: 250px;
+      display: inline-block;
+      vertical-align: top;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .medicine-card h3 { margin: 0 0 5px; }
+    .medicine-card p { margin: 0 0 10px; color: #444; }
+    .medicine-card button {
+      background: #7393A7;
+      color: #fff;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 25px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover { color: #333; }
+
+    .preview-box {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #2a6fdb;
+      background: #e8f0fb;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      color: #7393A7;
+      margin-bottom: 15px;
+      font-family: "Bricolage Grotesque", sans-serif;
+    }
+    label { display: block; margin-top: 10px; color: #333; font-weight: bold; text-align: left; }
+    input, textarea {
+      width: 95%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    textarea { resize: vertical; }
+
+    .submit-btn {
+      margin-top: 20px;
+      width: 100%;
+      background: #7393A7;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: "Bricolage Grotesque", sans-serif;
+    }
+    .submit-btn:hover { background: #4b6fa5; }
+
+    .success-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border: 2px solid #2a6fdb;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      z-index: 2000;
+    }
+    .success-popup .check { font-size: 12px; color: green; }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
