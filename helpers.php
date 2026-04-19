@@ -21,11 +21,11 @@ if (!defined('UPLOAD_DIR')) define('UPLOAD_DIR', 'uploads/id_photos/');
 // EMAIL CONFIGURATION (Hardcoded for XAMPP local testing)
 // ============================================================
 $MAIL_CONFIG = [
-    'host'       => getenv('MAIL_HOST')     ?: 'smtp.gmail.com',
-    'port'       => getenv('MAIL_PORT')     ?: 587,
-    'username'   => getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com',
-    'password'   => getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk',
-    'from_email' => getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com',
+    'host'       => getenv('SMTP_HOST')     ?: 'smtp.gmail.com',
+    'port'       => getenv('SMTP_PORT')     ?: 587,
+    'username'   => getenv('SMTP_USERNAME') ?: '',
+    'password'   => getenv('SMTP_PASSWORD') ?: '',
+    'from_email' => getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com',
     'from_name'  => 'PharmAssist Support',
     'timeout'    => 30,
 ];
@@ -58,7 +58,7 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         $mail->SMTPAuth = true;
         $mail->Username = $MAIL_CONFIG['username'];
         $mail->Password = $MAIL_CONFIG['password'];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->Timeout = $MAIL_CONFIG['timeout'];
         
