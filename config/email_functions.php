@@ -14,18 +14,18 @@ function sendEmailOTP($email, $fullname, $otp, $type = 'email') {
     
     try {
         // Server settings
-    $mail->isSMTP();
-    $mail->Host       = getenv('MAIL_HOST') ?: 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
-    $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+        $mail->isSMTP();
+        $mail->Host       = getenv('MAIL_HOST')     ?: 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
+        $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = getenv('MAIL_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom('a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
-        $mail->addReplyTo('a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->addReplyTo(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
         // Content
         $mail->isHTML(true);
@@ -53,17 +53,17 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = getenv('MAIL_HOST')     ?: 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'a.pharmasee@gmail.com';
-        $mail->Password   = 'ujct nsjw ptzq ahnk';
+        $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
+        $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = getenv('MAIL_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom('a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
-        $mail->addReplyTo('a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->addReplyTo(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
         // Content
         $mail->isHTML(true);
@@ -87,6 +87,8 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
         return false;
     }
 }
+
+// ... rest of your HTML functions remain the same
 
 /**
  * Create OTP verification email HTML
