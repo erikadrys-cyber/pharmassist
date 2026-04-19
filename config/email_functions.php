@@ -15,17 +15,17 @@ function sendEmailOTP($email, $fullname, $otp, $type = 'email') {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = getenv('MAIL_HOST')     ?: 'smtp.gmail.com';
+        $mail->Host       = getenv('SMTP_HOST')     ?: 'smtp-relay.brevo.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
-        $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
+        $mail->Username   = getenv('SMTP_USERNAME') ?: 'a897b8001@smtp-brevo.com';
+        $mail->Password   = getenv('SMTP_PASSWORD') ?: 'xsmtpsib-08d47a4c0887b0e7c93e61264a827e1d41707c148738565960e82a34f5bc62db-L2wEhL7VmYoxsjRI';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = getenv('MAIL_PORT')     ?: 587;
+        $mail->Port       = getenv('SMTP_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
-        $mail->addReplyTo(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->addReplyTo(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
         // Content
         $mail->isHTML(true);
@@ -53,17 +53,17 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = getenv('MAIL_HOST')     ?: 'smtp.gmail.com';
+        $mail->Host       = getenv('SMTP_HOST')     ?: 'smtp-relay.brevo.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
-        $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = getenv('MAIL_PORT')     ?: 587;
+        $mail->Username   = getenv('SMTP_USERNAME') ?: 'a897b8001@smtp-brevo.com';
+        $mail->Password   = getenv('SMTP_PASSWORD') ?: 'xsmtpsib-08d47a4c0887b0e7c93e61264a827e1d41707c148738565960e82a34f5bc62db-L2wEhL7VmYoxsjRI';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = getenv('SMTP_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
-        $mail->addReplyTo(getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->addReplyTo(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
         // Content
         $mail->isHTML(true);
