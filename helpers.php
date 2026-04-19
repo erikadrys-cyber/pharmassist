@@ -22,7 +22,7 @@ if (!defined('UPLOAD_DIR')) define('UPLOAD_DIR', 'uploads/id_photos/');
 // ============================================================
 $MAIL_CONFIG = [
     'host'       => getenv('SMTP_HOST')     ?: 'smtp.gmail.com',
-    'port'       => getenv('SMTP_PORT')     ?: 587,
+    'port'       => (int)(getenv('SMTP_PORT') ?: 587),
     'username'   => getenv('SMTP_USERNAME') ?: '',
     'password'   => getenv('SMTP_PASSWORD') ?: '',
     'from_email' => getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com',
@@ -69,7 +69,13 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         error_log("  Username: " . substr($MAIL_CONFIG['username'], 0, 3) . "***");
         
         // CRITICAL: SSL Options for local development
-        $mail->SMTPOptions = [];
+       $mail->SMTPOptions = [
+        'ssl' => [
+        'verify_peer'       => false,
+        'verify_peer_name'  => false,
+        'allow_self_signed' => true,
+        ]
+    ];
         error_log("✓ SSL verification DISABLED (for local dev)");
         
         // Debug logging slows things down and isn't needed for normal use.
