@@ -73,7 +73,10 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         error_log("✓ SSL verification DISABLED (for local dev)");
         
         // Debug logging slows things down and isn't needed for normal use.
-        $mail->SMTPDebug = 0;
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = function($str, $level) {
+            error_log("SMTP DEBUG: " . $str);
+        };
         
         // Recipients
         $mail->setFrom($MAIL_CONFIG['from_email'], $MAIL_CONFIG['from_name']);
