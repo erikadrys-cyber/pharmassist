@@ -14,13 +14,13 @@ function sendEmailOTP($email, $fullname, $otp, $type = 'email') {
     
     try {
         // Server settings
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'a.pharmasee@gmail.com';
-        $mail->Password   = 'ujct nsjw ptzq ahnk';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+    $mail->isSMTP();
+    $mail->Host       = getenv('MAIL_HOST') ?: 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
+    $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
         
         // Recipients
         $mail->setFrom('a.pharmasee@gmail.com', 'PharmAssist Support');
