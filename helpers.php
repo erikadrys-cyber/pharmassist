@@ -21,15 +21,13 @@ if (!defined('UPLOAD_DIR')) define('UPLOAD_DIR', 'uploads/id_photos/');
 // EMAIL CONFIGURATION (Hardcoded for XAMPP local testing)
 // ============================================================
 $MAIL_CONFIG = [
-    'host'       => 'smtp.gmail.com',
-    'port'       => 587,
-    'username'   => 'a.pharmasee@gmail.com',
-    'password'   => 'ujct nsjw ptzq ahnk',
-    'from_email' => 'a.pharmasee@gmail.com',
+    'host'       => getenv('MAIL_HOST')     ?: 'smtp.gmail.com',
+    'port'       => getenv('MAIL_PORT')     ?: 587,
+    'username'   => getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com',
+    'password'   => getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk',
+    'from_email' => getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com',
     'from_name'  => 'PharmAssist Support',
-    // Keep this reasonably low so resend doesn't feel "stuck".
-    // If you get intermittent network issues, bump this up again.
-    'timeout'    => 15,
+    'timeout'    => 30,
 ];
 
 // Stores last PHPMailer error for UI/logging (best-effort).
@@ -71,13 +69,7 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         error_log("  Username: " . substr($MAIL_CONFIG['username'], 0, 3) . "***");
         
         // CRITICAL: SSL Options for local development
-        $mail->SMTPOptions = [
-            'ssl' => [
-                'verify_peer'       => false,
-                'verify_peer_name'  => false,
-                'allow_self_signed' => true
-            ]
-        ];
+        $mail->SMTPOptions = [];
         error_log("✓ SSL verification DISABLED (for local dev)");
         
         // Debug logging slows things down and isn't needed for normal use.
