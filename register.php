@@ -6,9 +6,10 @@ session_start();
 include 'config/connection.php';
 include 'helpers.php';
 
-if (!function_exists('sendEmailOTP')) {
-    error_log("CRITICAL: sendEmailOTP function NOT FOUND!");
-    die("ERROR: Email function not loaded properly");
+$result = sendEmailOTP($email, $fullname, $otp);
+if (!$result) {
+    error_log("MAIL FAILED - Host: " . getenv('MAIL_HOST') . " User: " . getenv('MAIL_USERNAME'));
+    error_log("MAIL FAILED - Pass exists: " . (getenv('MAIL_PASSWORD') ? 'YES' : 'NO'));
 }
 // ENABLE ALL ERROR REPORTING
 
