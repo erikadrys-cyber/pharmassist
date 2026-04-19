@@ -1287,7 +1287,7 @@ $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
             ?>
             <div class="branch-container" data-branch-name="<?php echo htmlspecialchars($branchName); ?>">
                 <div class="branch-header">
-                    <h2 class="branch-title">PharmAssist <?php echo htmlspecialchars($branchName); ?></h2>
+                    <h2 class="branch-title"><?php echo htmlspecialchars($branchName); ?></h2>
                 </div>
 
                 <div class="cards-container" id="cardsContainer<?php echo $branchIndex; ?>">
