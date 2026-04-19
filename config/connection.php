@@ -1,9 +1,9 @@
 <?php
-$host = getenv('MYSQLHOST')     ?: 'localhost';
-$port = getenv('MYSQLPORT')     ?: '3306';
-$db   = getenv('MYSQLDATABASE') ?: 'pharmassist';
+$host = getenv('MYSQLHOST')     ?: 'nozomi.proxy.rlwy.net';
+$port = getenv('MYSQLPORT')     ?: '33390';
+$db   = getenv('MYSQLDATABASE') ?: 'railway';
 $user = getenv('MYSQLUSER')     ?: 'root';
-$pass = getenv('MYSQLPASSWORD') ?: '';
+$pass = getenv('MYSQLPASSWORD') ?: 'xGFLablnjgDZyvFhiweGcojnRQdojutH';
 
 
 $conn = new mysqli($host, $user, $pass, $db, (int)$port);
