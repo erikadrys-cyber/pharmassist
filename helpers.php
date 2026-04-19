@@ -64,7 +64,7 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         
         error_log("SMTP Config:");
         error_log("  Host: " . $MAIL_CONFIG['host']);
-        error_log("  Port: " . $MAIL_CONFIG['587']);
+        error_log("  Port: " . $MAIL_CONFIG['port']);
         error_log("  Encryption: STARTTLS");
         error_log("  Username: " . substr($MAIL_CONFIG['username'], 0, 3) . "***");
         
