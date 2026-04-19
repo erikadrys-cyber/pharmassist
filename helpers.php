@@ -58,13 +58,13 @@ function sendEmailViaSMTP($recipient_email, $recipient_name, $subject, $html_mes
         $mail->SMTPAuth = true;
         $mail->Username = $MAIL_CONFIG['username'];
         $mail->Password = $MAIL_CONFIG['password'];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = $MAIL_CONFIG['port'];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 587;
         $mail->Timeout = $MAIL_CONFIG['timeout'];
         
         error_log("SMTP Config:");
         error_log("  Host: " . $MAIL_CONFIG['host']);
-        error_log("  Port: " . $MAIL_CONFIG['port']);
+        error_log("  Port: " . $MAIL_CONFIG['587']);
         error_log("  Encryption: STARTTLS");
         error_log("  Username: " . substr($MAIL_CONFIG['username'], 0, 3) . "***");
         

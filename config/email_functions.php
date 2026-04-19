@@ -57,7 +57,7 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
         $mail->SMTPAuth   = true;
         $mail->Username   = getenv('MAIL_USERNAME') ?: 'a.pharmasee@gmail.com';
         $mail->Password   = getenv('MAIL_PASSWORD') ?: 'ujct nsjw ptzq ahnk';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = getenv('MAIL_PORT')     ?: 587;
         
         // Recipients
