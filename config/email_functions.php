@@ -55,8 +55,8 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
         $mail->isSMTP();
         $mail->Host       = getenv('SMTP_HOST')     ?: 'smtp-relay.brevo.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = getenv('SMTP_USERNAME') ?: 'a897b8001@smtp-brevo.com';
-        $mail->Password   = getenv('SMTP_PASSWORD') ?: 'xsmtpsib-08d47a4c0887b0e7c93e61264a827e1d41707c148738565960e82a34f5bc62db-L2wEhL7VmYoxsjRI';
+        $mail->Username   = getenv('SMTP_USERNAME') ?: '';
+        $mail->Password   = getenv('SMTP_PASSWORD') ?: '';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = getenv('SMTP_PORT')     ?: 587;
         
