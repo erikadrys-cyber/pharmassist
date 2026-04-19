@@ -21,11 +21,11 @@ if (!defined('UPLOAD_DIR')) define('UPLOAD_DIR', 'uploads/id_photos/');
 // EMAIL CONFIGURATION (Hardcoded for XAMPP local testing)
 // ============================================================
 $MAIL_CONFIG = [
-    'host'       => getenv('SMTP_HOST')     ?: 'smtp.gmail.com',
+    'host'       => getenv('SMTP_HOST')     ?: 'smtp-relay.brevo.com',
     'port'       => (int)(getenv('SMTP_PORT') ?: 587),
     'username'   => getenv('SMTP_USERNAME') ?: '',
     'password'   => getenv('SMTP_PASSWORD') ?: '',
-    'from_email' => getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com',
+    'from_email' => getenv('SMTP_USERNAME') ?: '',
     'from_name'  => 'PharmAssist Support',
     'timeout'    => 30,
 ];

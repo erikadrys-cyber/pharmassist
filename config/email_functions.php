@@ -23,7 +23,7 @@ function sendEmailOTP($email, $fullname, $otp, $type = 'email') {
         $mail->Port       = getenv('SMTP_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('MAIL_FROM') ?: '', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
         $mail->addReplyTo(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
@@ -61,7 +61,7 @@ function sendIDVerificationNotification($email, $fullname, $status, $rejection_r
         $mail->Port       = getenv('SMTP_PORT')     ?: 587;
         
         // Recipients
-        $mail->setFrom(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
+        $mail->setFrom(getenv('MAIL_FROM') ?: '', 'PharmAssist Support');
         $mail->addAddress($email, $fullname);
         $mail->addReplyTo(getenv('SMTP_USERNAME') ?: 'a.pharmasee@gmail.com', 'PharmAssist Support');
         
